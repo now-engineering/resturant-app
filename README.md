@@ -1,34 +1,89 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Munchies Code Interview
+### Read the instructions carefully
 
-## Getting Started
+## Installation
+NextJS: 12.1.2
+react-js: 17.0.2
+react-dom: 17.0.2
 
-First, run the development server:
+1. Create a fork of the repository
+2. Clone into your directory
+`git clone https://github.com/{your-username}/resturant-app.git`
+3. Install using yarn 
+`yarn install`
 
-```bash
-npm run dev
-# or
-yarn dev
+## Recomended Dependecies
+Install recomended dependencies  you like.
+1. **UI:** Tailwind CSS or Chakra UI
+2. **State**: Mobx or Redux Toolkit maybe ContextAPI :( 
+3. **HTTP**: axios or fetch or swr
+
+#### Source:
+|Tool| link |
+|--|--|
+|Tailwind  | https://tailwindcss.com/docs/installation |
+| ChakraUI* | https://chakra-ui.com/guides/first-steps |
+| Mobx* | https://mobx.js.org/react-integration.html |
+| redux-toolkit | https://redux-toolkit.js.org/introduction/getting-started |
+| Axios | https://github.com/axios/axios |
+
+## Task
+View design here https://www.figma.com/file/Nzg4qD5aaRgctu5hrCOtur/Munchies-FE-code?node-id=3%3A29
+
+1. Login
+ - [ ] create login components in `app/user/components/LoginComponent.tsx`
+ - [ ] create login logic in `app/user/controller/user.controller.ts`
+ - [ ] use axios or other tool to call api in `user.controller.ts`
+```
+POST http://munchies-test.herokuapp.com/auth/signin
+
+{
+	"email":  "test@nocodb.com",
+	"password":  "password"
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ - [ ] finally import `LoginComponent` in `page/login.tsx` 
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+ **OR Do It Yourself**
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+    
+ 
+2. Register
+- [ ] create register component in `app/user/components/RegisterComponent.tsx`
+- [ ]  create register logic using redux-toolkit or mobx `app/user/controller/user.controller.ts`
+ - [ ] call login api using fetch or axios `user.controller.ts`
+  ```
+ POST http://munchies-test.herokuapp.com/auth/signup
+ 
+ {
+    "email":  "test@hello.com",
+    "password":  "pass",
+    "firstname":  "First Name",
+    "lastname":  "Last Name"
+ }
+```
+ - [ ] finally import `RegisterComponent` in `page/register.tsx` 
+ 
+ **OR Do It Yourself**
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+3. Resturant
+- [ ] create resturant view in `pages/resturant.tsx`
+- [ ] implement CRUD using mobx or redux-toolkit and axios or fetch in`app/resturant/controller/resturant.controller.tsx`
 
-## Learn More
+|METHOD| description| endpoints| 
+|--|--|--|
+| POST | create new resturant | http://munchies-test.herokuapp.com/nc/resturant_ny25/api/v1/food| 
+| GET | get list of items | http://munchies-test.herokuapp.com/nc/resturant_ny25/api/v1/food |
+| PUT | updates a resturant | http://munchies-test.herokuapp.com/nc/resturant_ny25/api/v1/food/:id |
+| DELETE | Deletes a resturant | http://munchies-test.herokuapp.com/nc/resturant_ny25/api/v1/food/:id | 
+ **OR Do It Yourself**
 
-To learn more about Next.js, take a look at the following resources:
+## Bonus
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. good design sense
+2. Implement clean code
+3. maintain clean architecture
+4. error handling
+5. strong knowledge in typescript
+6. strong knowledge in mvvm
